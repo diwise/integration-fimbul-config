@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: integration-fimbul
+spec:
+  schedule: "0 * * * *" # run hourly by default
+  successfulJobHistoryLimits: 1 
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          annotations:
+            sidecar.istio.io/inject: "false"
+        spec:
+          containers:
+          - env:
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: FIMBUL_URL
+              value: "https://fimbul.se"
+            name: integration-fimbul
+            image: ghcr.io/diwise/integration-fimbul:changeme
+            imagePullPolicy: IfNotPresent
+            args: ["-stationId=$(STATION_ID)"]
+            resources:
+             resources:
+                limits:
+                  cpu: 100m
+                  memory: 250Mi
+                requests:
+                   cpu: 50m
+                   memory: 100Mi
+          restartPolicy: Never
+          serviceAccountName: integration-fimbul
