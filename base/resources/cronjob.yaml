@@ -23,7 +23,7 @@ spec:
             name: integration-fimbul
             image: ghcr.io/diwise/integration-fimbul:changeme
             imagePullPolicy: IfNotPresent
-            args: ["-stationId=$(STATION_ID)"]
+            args: ["-stationIds=$(STATION_IDS)"]
             resources:
              resources:
                 limits:
