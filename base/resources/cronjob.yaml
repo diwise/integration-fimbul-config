@@ -4,7 +4,7 @@ metadata:
   name: integration-fimbul
 spec:
   schedule: "0 * * * *" # run hourly by default
-  successfulJobHistoryLimits: 1 
+  successfulJobsHistoryLimit: 1 
   jobTemplate:
     spec:
       template:
