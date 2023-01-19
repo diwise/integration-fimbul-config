@@ -25,12 +25,11 @@ spec:
             imagePullPolicy: IfNotPresent
             args: ["-stations=$(STATION_IDS)"]
             resources:
-             resources:
-                limits:
-                  cpu: 100m
-                  memory: 250Mi
-                requests:
-                   cpu: 50m
-                   memory: 100Mi
+              limits:
+                cpu: 100m
+                memory: 250Mi
+              requests:
+                 cpu: 50m
+                 memory: 100Mi
           restartPolicy: Never
           serviceAccountName: integration-fimbul
