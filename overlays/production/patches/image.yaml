@@ -1,3 +1,3 @@
 - op: replace
   path: "/spec/jobTemplate/spec/template/spec/containers/0/image"
-  value: ghcr.io/diwise/integration-fimbul@sha256:13232c18f81e153e84663fc3a233fd0fe57ec8a1d3b50cd8d61ff432d4954fb5
+  value: ghcr.io/diwise/integration-fimbul@sha256:06fff5daae4260ef4f1965d4bd8dd80618b87e5db16ff8f64567def478276580
